@@ -15,7 +15,7 @@
         ]
     },
     "scripts": {
-        "start": "webpack-dev-server --watch -d",
+        "start": "concurrently \"nodemon index.js --exec babel-node --inspect\" \"webpack-dev-server --watch -d\"",
         "e2e:local": "./node_modules/nightwatch/bin/nightwatch --config ./config/nightwatch/nightwatch.conf.js",
         "test": "./node_modules/.bin/mocha $(find . -name '*test.js' ! -ipath '*node_modules*')  --opts 'config/mocha/mocha.opts'",
         "lint": "./node_modules/.bin/eslint app/* server/* index.js",
@@ -33,6 +33,7 @@
         "babel-preset-stage-2": "^6.24.1",
         "chai": "^4.1.0",
         "chai-as-promised": "^7.1.1",
+        "concurrently": "^3.5.0",
         "css-loader": "^0.28.4",
         "eslint": "^4.3.0",
         "eslint-plugin-babel": "^4.1.1",
@@ -50,6 +51,7 @@
         "lint-staged": "^4.0.2",
         "mocha": "^3.5.0",
         "nightwatch": "^0.9.16",
+        "nodemon": "^1.12.0",
         "pm2-docker": "^2.1.0",
         "postcss-loader": "^2.0.6",
         "prettier-eslint-cli": "^4.1.1",
@@ -64,10 +66,13 @@
         "webpack-dev-server": "^2.6.1"
     },
     "dependencies": {
+        "axios": "^0.16.2",
         "babel-cli": "^6.26.0",
         "buttercms": "^1.0.17",
         "immutable": "^3.8.1",
         "koa": "^2.3.0",
+        "koa-cors": "0.0.16",
+        "koa-path-match": "^2.0.0",
         "koa-static": "^4.0.1",
         "normalizr": "^3.2.3",
         "react": "^15.6.1",
@@ -78,6 +83,7 @@
         "redux-immutablejs": "0.0.8",
         "redux-logger": "^3.0.6",
         "redux-observable": "^0.14.1",
-        "reselect": "^3.0.1"
+        "reselect": "^3.0.1",
+        "xml2js": "^0.4.19"
     }
 }

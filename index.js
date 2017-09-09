@@ -1,7 +1,16 @@
-const Koa = require('koa')
-const staticFiles = require('koa-static')
-const server = new Koa()
+import cors from 'koa-cors'
+import http from 'http'
+import Koa from 'koa'
+import pathMatch from 'koa-path-match'
+import staticFiles from 'koa-static'
+import listings from './server/listings'
+const app = new Koa()
+const route = pathMatch({})
 
-server.use(staticFiles('public'))
+app.use(cors())
 
-server.listen(3000)
+app.use(route('/listing').get(listings))
+
+app.use(staticFiles('public'))
+
+app.listen(3001)
