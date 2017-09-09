@@ -22,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
     if (!action) return state
     switch (action.type) {
         case PROCESSED:
-            return state.merge(fromJS(action.payload.entities.child))
+            return state.merge(fromJS(action.payload.entities.listing))
         default:
             return state
     }
@@ -52,8 +52,8 @@ export default (state = INITIAL_STATE, action) => {
 
 export const fetchingListingsEpic = action$ =>
     action$.ofType(FETCHING).mergeMap(({ payload: id }) =>
-        butter.content.retrieve(['listing']).then(listings => {
-            return [receivedListings(listings)]
+        butter.content.retrieve(['listing']).then(res => {
+            return [receivedListings(res.data.data.listing)]
         }),
     )
 
