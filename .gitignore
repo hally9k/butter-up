@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# osx...
+.DS_Store
+
+# noightwatch reports
+e2e/reports
+
+# webpack build output
+public

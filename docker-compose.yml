@@ -1,0 +1,13 @@
+version: "2"
+services:
+  web:
+    volumes:
+      - .:/usr/src/app
+    build: .
+    ports:
+      - "3000:3000"
+    command: ./node_modules/.bin/pm2-docker start ./index.js
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - 4444:4444

@@ -1,0 +1,83 @@
+{
+    "name": "butter-up",
+    "version": "0.0.1",
+    "description": "A simple stand up of a Butter CMS driven React app.",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com-hally9k:hally9k/butter-up.git"
+    },
+    "author": "hally9k",
+    "license": "ISC",
+    "lint-staged": {
+        "*.js": [
+            "eslint"
+        ]
+    },
+    "scripts": {
+        "start": "webpack-dev-server --watch -d",
+        "e2e:local": "./node_modules/nightwatch/bin/nightwatch --config ./config/nightwatch/nightwatch.conf.js",
+        "test": "./node_modules/.bin/mocha $(find . -name '*test.js' ! -ipath '*node_modules*')  --opts 'config/mocha/mocha.opts'",
+        "lint": "./node_modules/.bin/eslint app/* server/* index.js",
+        "format": "./node_modules/.bin/prettier-eslint \"server/**/*.{js,jsx}\" \"app/**/*.{js,jsx}\" \"index.js\" --write",
+        "precommit": "npm run lint && npm run type-check",
+        "prepush": "npm t",
+        "type-check": "./node_modules/.bin/flow"
+    },
+    "devDependencies": {
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-flow": "^6.23.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "chai": "^4.1.0",
+        "chai-as-promised": "^7.1.1",
+        "css-loader": "^0.28.4",
+        "eslint": "^4.3.0",
+        "eslint-plugin-babel": "^4.1.1",
+        "eslint-plugin-compat": "^1.0.4",
+        "eslint-plugin-filenames": "^1.2.0",
+        "eslint-plugin-flowtype": "^2.35.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-react": "^7.1.0",
+        "file-loader": "^0.11.2",
+        "flow-bin": "^0.51.0",
+        "flow-typed": "^2.1.5",
+        "html-webpack-plugin": "^2.30.0",
+        "husky": "^0.14.3",
+        "lint-staged": "^4.0.2",
+        "mocha": "^3.5.0",
+        "nightwatch": "^0.9.16",
+        "pm2-docker": "^2.1.0",
+        "postcss-loader": "^2.0.6",
+        "prettier-eslint-cli": "^4.1.1",
+        "prop-types": "^15.5.10",
+        "raw-loader": "^0.5.1",
+        "react-hot-loader": "^1.3.1",
+        "sinon": "^2.3.8",
+        "sinon-chai": "^2.12.0",
+        "style-loader": "^0.18.2",
+        "url-loader": "^0.5.9",
+        "webpack": "^3.4.1",
+        "webpack-dev-server": "^2.6.1"
+    },
+    "dependencies": {
+        "babel-cli": "^6.26.0",
+        "buttercms": "^1.0.17",
+        "immutable": "^3.8.1",
+        "koa": "^2.3.0",
+        "koa-static": "^4.0.1",
+        "normalizr": "^3.2.3",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-modal": "^2.2.4",
+        "react-redux": "^5.0.5",
+        "redux": "^3.7.2",
+        "redux-immutablejs": "0.0.8",
+        "redux-logger": "^3.0.6",
+        "redux-observable": "^0.14.1",
+        "reselect": "^3.0.1"
+    }
+}
